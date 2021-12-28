@@ -40,9 +40,8 @@ export class CommentEntity extends PublicEntity {
   userType: number;
 
   @Column({
-    type: 'varchar',
-    length: 255,
+    type: 'int',
     name: 'likes'
   })
-  likes: string;
+  likes: number;
 }

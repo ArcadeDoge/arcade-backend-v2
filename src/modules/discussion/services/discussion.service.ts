@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { QueryBuilder, Repository, SelectQueryBuilder } from "typeorm";
+import { Repository, SelectQueryBuilder } from "typeorm";
 import { DiscussionListResDto, DiscussionResDto } from "../dto/discussion.res.dto";
 import { StuffResDto } from "../dto/stuff.res.dto";
 import { DiscussionEntity } from "../entities/discussion.entity";

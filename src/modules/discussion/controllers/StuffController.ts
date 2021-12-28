@@ -10,7 +10,7 @@ export class StuffController {
     private readonly discussionService: DiscussionService
   ) {}
 
-  @Get('/get/:id')
+  @Get('/id/:id')
   async stuffById(@Param('id', new ParseIntPipe()) id: number): Promise<StuffResDto | undefined> {
     return await this.stuffService.stuffById(id);
   }

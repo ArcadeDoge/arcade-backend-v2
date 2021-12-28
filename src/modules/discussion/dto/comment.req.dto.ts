@@ -1,23 +1,13 @@
 import { Type } from "class-transformer";
 import { IsEnum, IsString } from "class-validator";
-import { QueryOptionsDto } from "src/dto/query.options.dto"
 
-export class QueryDiscussionAllReqDto extends QueryOptionsDto {
-
-  @Type(() => Number)
-  stuffId: number;
-}
-
-export class QueryDiscussionAccountReqDto extends QueryDiscussionAllReqDto {
-
-  @IsString()
-  account: string;
-}
-
-export class CreateDiscussionReqDto {
+export class CreateCommentReqDto {
 
   @Type(() => Number)
-  stuffId: number;
+  discussionId: number;
+
+  @Type(() => Number)
+  parentId: number;
 
   @IsString()
   content: string;

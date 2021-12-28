@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from "@nestjs/common";
-import { QueryDiscussionAccountReqDto, QueryDiscussionAllReqDto } from "../dto/discussion.req.dto";
+import { CreateDiscussionReqDto, QueryDiscussionAccountReqDto, QueryDiscussionAllReqDto } from "../dto/discussion.req.dto";
 import { DiscussionListResDto, DiscussionResDto } from "../dto/discussion.res.dto";
 import { DiscussionService } from "../services/discussion.service";
 import { LikesService } from "../services/likes.service";
@@ -40,5 +40,9 @@ export class DiscussionController {
     };
   }
 
-  
+  @Post('/new')
+  async createNew(@Body() reqDto: CreateDiscussionReqDto): Promise<string> {
+    // todo
+    return "Success";
+  }
 }
