@@ -2,6 +2,7 @@ import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { BalanceController } from "./controllers/balance.controller";
 import { GameController } from "./controllers/game.controller";
+import { SyncController } from "./controllers/sync.controller";
 import { GameEntity } from "./entities/game.entity";
 import { GameService } from "./services/game.service";
 
@@ -13,7 +14,8 @@ import { GameService } from "./services/game.service";
   ],
   controllers: [
     BalanceController,
-    GameController
+    GameController,
+    SyncController
   ],
   providers: [
     GameService
