@@ -12,6 +12,8 @@ import {
 } from './config/database.config';
 import { LoggingInterceptor } from './interceptors/logging/logging.interceptor';
 import { DiscussionModule } from './modules/discussion/discussion.module';
+import { GameModule } from './modules/game/game.module';
+import { MarketModule } from './modules/market/market.module';
 
 console.log('NODE_ENV', process.env.NODE_ENV);
 
@@ -39,10 +41,9 @@ console.log('NODE_ENV', process.env.NODE_ENV);
         logging: configService.get("database.logging")
       })
     }),
-    DiscussionModule
-    // GameModule,
-    // DiscussionModule,
-    // MarketModule
+    DiscussionModule,
+    GameModule,
+    MarketModule
   ],
   controllers: [],
   providers: [{

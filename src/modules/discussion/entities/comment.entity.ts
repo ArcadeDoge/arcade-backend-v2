@@ -1,6 +1,6 @@
 import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 import { PublicEntity } from 'src/modules/shared/entities/public.entity';
-import { DiscussionEntity } from './discussion.entity';
+// import { DiscussionEntity } from './discussion.entity';
 
 @Entity('tbl_comment')
 export class CommentEntity extends PublicEntity {

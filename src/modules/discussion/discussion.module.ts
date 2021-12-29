@@ -1,7 +1,7 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { DiscussionController } from "./controllers/DiscussionController";
-import { StuffController } from "./controllers/StuffController";
+import { DiscussionController } from "./controllers/discussion.controller";
+import { StuffController } from "./controllers/stuff.controller";
 import { DiscussionEntity } from "./entities/discussion.entity";
 import { LikesEntity } from "./entities/likes.entity";
 import { StuffEntity } from "./entities/stuff.entity";
