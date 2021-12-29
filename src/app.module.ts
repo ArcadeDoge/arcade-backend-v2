@@ -1,9 +1,10 @@
 import { Module, ValidationPipe } from '@nestjs/common';
-import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService, registerAs } from '@nestjs/config';
 import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as Joi from 'joi';
 import {
+  configuration as defaultConfig,
   validationSchema as defaultValidationSchema
 } from './config/default.config';
 import {
@@ -21,11 +22,16 @@ console.log('NODE_ENV', process.env.NODE_ENV);
   imports: [
     ConfigModule.forRoot({
       envFilePath: process.env.NODE_ENV === 'development' ? '.env.development' : '.env.production',
-      load: [databaseConfig],
-      validationSchema: Joi.object({
-        ...databaseValidationSchema,
-        ...defaultValidationSchema
-      })
+      load: [
+        registerAs('default', defaultConfig),
+        registerAs('database', databaseConfig)
+      ],
+      validationSchema: Joi.object(
+        Object.assign(
+          databaseValidationSchema,
+          defaultValidationSchema
+        )
+      )
     }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],

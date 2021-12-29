@@ -1,8 +1,8 @@
 export class VerifySwapResDto {
 
-  readonly v: number;
+  readonly v?: number;
   
-  readonly r: string;
+  readonly r?: string;
 
-  readonly s: string;
+  readonly s?: string;
 }

@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsInt, IsString } from "class-validator";
+import { IsInt, IsOptional, IsString } from "class-validator";
 
 export class VerifySwapReqDto {
   
@@ -19,9 +19,11 @@ export class VerifySwapReqDto {
 
   @Type(() => Number)
   @IsInt()
+  @IsOptional()
   reserved1: number;
 
   @Type(() => Number)
   @IsInt()
+  @IsOptional()
   reserved2: number;
 }

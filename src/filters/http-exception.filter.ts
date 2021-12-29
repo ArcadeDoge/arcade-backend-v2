@@ -32,11 +32,11 @@ export class HttpExceptionFilter implements ExceptionFilter {
       timestamp: new Date().toLocaleDateString(), // 错误的时间
     };
     // 打印日志
-    Logger.error(
-      `【${formatDate(Date.now())}】${request.method} ${request.url}`,
-      JSON.stringify(errorResponse),
-      'HttpExceptionFilter',
-    );
+    // Logger.error(
+    //   `【${formatDate(new Date().toString())}】${request.method} ${request.url}`,
+    //   JSON.stringify(errorResponse),
+    //   'HttpExceptionFilter',
+    // );
     // 设置返回的状态码、请求头、发送错误信息
     response.status(status);
     response.header('Content-Type', 'application/json; charset=utf-8');

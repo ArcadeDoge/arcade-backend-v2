@@ -1,8 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
+    "source.fixAll.eslint": true
   },
   "files.autoSave": "afterDelay",
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "editor.wordWrapColumn": 80,
+  "editor.rulers": [80, 120],
 }

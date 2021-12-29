@@ -1,8 +1,7 @@
-import { registerAs } from '@nestjs/config';
 import * as Joi from 'joi';
 import { getEnv, getEnvBoolean, getEnvNumber } from './utils';
 
-export const configuration = registerAs('database', () => {
+export const configuration = () => {
   const host = getEnv('DB_HOST', 'localhost');
   const port = getEnvNumber('DB_PORT', 3306);
   const username = getEnv('DB_USERNAME');
@@ -18,7 +17,7 @@ export const configuration = registerAs('database', () => {
     database,
     logging
   }
-});
+};
 
 export const validationSchema = {
   DB_HOST: Joi.string().required(),
