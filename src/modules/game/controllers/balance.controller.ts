@@ -22,17 +22,22 @@ export class BalanceController {
           }
         }, HttpStatus.OK);
       }
-      const gameBackendVerification = await axios.post(`${configuration().marsdoge}/verify/swap-game-point`, {
-        address: reqDto.requester,
-        amount: reqDto.amount
-      });
-      if (!gameBackendVerification || gameBackendVerification.data.result != RetCode.Success) {
-        throw new HttpException({
-          message: {
-            code: RetCode.Failed,
-            message: 'Marsdoge verification failed'
-          }
-        }, HttpStatus.OK);
+      if (reqDto.swapType === 1) {
+        const gameBackendVerification = await axios.post(`${configuration().marsdoge}/verify/swap-game-point`, {
+          address: reqDto.requester,
+          amount: reqDto.amount
+        });
+        if (
+          !gameBackendVerification ||
+          gameBackendVerification.data.result != RetCode.Success
+        ) {
+          throw new HttpException({
+            message: {
+              code: RetCode.Failed,
+              message: 'Marsdoge verification failed'
+            }
+          }, HttpStatus.OK);
+        }
       }
 
       const request: Request = new Request(
