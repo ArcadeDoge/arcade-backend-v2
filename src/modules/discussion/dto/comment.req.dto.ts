@@ -4,23 +4,23 @@ import { IsEnum, IsInt, IsString } from 'class-validator';
 export class CreateCommentReqDto {
   @Type(() => Number)
   @IsInt()
-  discussionId: number;
+  readonly discussionId: number;
 
   @Type(() => Number)
   @IsInt()
-  parentId: number;
+  readonly parentId: number;
 
   @IsString()
-  content: string;
+  readonly content: string;
 
   @Type(() => Number)
   @IsInt()
   @IsEnum({ Normal: 0, Anonymous: 1 })
-  userType: number;
+  readonly userType: number;
 
   @IsString()
-  signature: string;
+  readonly signature: string;
 
   @IsString()
-  account: string;
+  readonly account: string;
 }

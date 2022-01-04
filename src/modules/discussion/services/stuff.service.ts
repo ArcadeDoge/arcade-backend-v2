@@ -1,11 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { DiscussionResDto } from '../dto/discussion.res.dto';
 import { StuffListResDto, StuffResDto } from '../dto/stuff.res.dto';
 import { StuffEntity } from '../entities/stuff.entity';
-import { DiscussionService } from './discussion.service';
-import { LikesService } from './likes.service';
 
 @Injectable()
 export class StuffService {

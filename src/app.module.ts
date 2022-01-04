@@ -4,10 +4,6 @@ import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import * as Joi from 'joi';
 import {
-  configuration as contractConfig,
-  validationSchema as contractValidationSchema,
-} from './config/contract.config';
-import {
   configuration as defaultConfig,
   validationSchema as defaultValidationSchema,
 } from './config/default.config';
@@ -19,6 +15,7 @@ import { LoggingInterceptor } from './interceptors/logging/logging.interceptor';
 import { DiscussionModule } from './modules/discussion/discussion.module';
 import { GameModule } from './modules/game/game.module';
 import { MarketModule } from './modules/market/market.module';
+import { SyncModule } from './modules/sync/sync.module';
 
 console.log('NODE_ENV', process.env.NODE_ENV);
 
@@ -31,15 +28,10 @@ console.log('NODE_ENV', process.env.NODE_ENV);
           : '.env.production',
       load: [
         registerAs('default', defaultConfig),
-        registerAs('contract', contractConfig),
         registerAs('database', databaseConfig),
       ],
       validationSchema: Joi.object(
-        Object.assign(
-          defaultValidationSchema,
-          contractValidationSchema,
-          databaseValidationSchema
-        )
+        Object.assign(defaultValidationSchema, databaseValidationSchema)
       ),
     }),
     TypeOrmModule.forRootAsync({
@@ -59,6 +51,7 @@ console.log('NODE_ENV', process.env.NODE_ENV);
     DiscussionModule,
     GameModule,
     MarketModule,
+    SyncModule,
   ],
   controllers: [],
   providers: [

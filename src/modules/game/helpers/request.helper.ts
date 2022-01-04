@@ -1,6 +1,5 @@
 import { ethers } from 'ethers';
 import { Signature } from '@ethersproject/bytes';
-import { configuration } from 'src/config/default.config';
 
 export type RequestType = {
   maker: string;
@@ -97,11 +96,11 @@ class Request {
   }
 
   async sign(
+    chainId: number,
     privateKey: string,
     verifyingContract: string,
     overrides?: RequestType
   ): Promise<Signature> {
-    const chainId = configuration().chainId;
     const DOMAIN_SEPARATOR = getDomainSeparator(
       'ArcadeSwap',
       '1',

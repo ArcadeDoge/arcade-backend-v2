@@ -5,15 +5,15 @@ import { QueryOptionsDto } from 'src/dto/query.options.dto';
 export class MarketItemReqDto extends QueryOptionsDto {
   @Type(() => Number)
   @IsInt()
-  gameId: number;
+  readonly gameId: number;
 
   @Type(() => Number)
   @IsInt()
-  category: number;
+  readonly category: number;
 
   @Type(() => Number)
   @IsInt()
-  sortType: number;
+  readonly sortType: number;
 }
 
 export class UploadMaterialDto {}

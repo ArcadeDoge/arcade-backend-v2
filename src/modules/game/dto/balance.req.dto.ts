@@ -18,9 +18,8 @@ export class VerifySwapReqDto {
   @IsEnum({ MarsDoge: 1 })
   gameId: number;
 
-  @Type(() => Number)
-  @IsInt()
-  amount: number;
+  @IsString()
+  amount: string;
 
   @Type(() => Number)
   @IsInt()

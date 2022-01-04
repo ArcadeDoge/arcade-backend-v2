@@ -4,14 +4,14 @@ import { IsEnum, IsInt, IsString } from 'class-validator';
 class LikesReqDto {
   @Type(() => Number)
   @IsInt()
-  discussionId: number;
+  readonly discussionId: number;
 
   @Type(() => Number)
   @IsInt()
-  parentId: number;
+  readonly parentId: number;
 
   @IsString()
-  user: string;
+  readonly user: string;
 }
 
 export class GetLikesReqDto extends LikesReqDto {}

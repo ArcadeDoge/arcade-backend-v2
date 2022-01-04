@@ -4,13 +4,13 @@ import { IsInt } from 'class-validator';
 export class TxsReqDto {
   @Type(() => Number)
   @IsInt()
-  gameId: number;
+  readonly gameId: number;
 
   @Type(() => Number)
   @IsInt()
-  index: number;
+  readonly blockNumber: number;
 
   @Type(() => Number)
   @IsInt()
-  count: number;
+  readonly count: number;
 }

@@ -11,7 +11,7 @@ import RetCode from 'src/constants/retcode';
 import { VerifySwapReqDto } from '../dto/balance.req.dto';
 import { VerifySwapResDto } from '../dto/balance.res.dto';
 import Request from '../helpers/request.helper';
-import { Signature } from 'ethers';
+import { ethers, Signature } from 'ethers';
 
 @Controller('/balance')
 export class BalanceController {
@@ -70,6 +70,7 @@ export class BalanceController {
         reqDto.amount.toString()
       );
       const signature: Signature = await request.sign(
+        configuration().chainId,
         `0x${configuration().privateKey}`,
         configuration().swapContract
       );

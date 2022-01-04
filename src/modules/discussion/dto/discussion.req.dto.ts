@@ -4,30 +4,30 @@ import { QueryOptionsDto } from 'src/dto/query.options.dto';
 
 export class QueryDiscussionAllReqDto extends QueryOptionsDto {
   @Type(() => Number)
-  stuffId: number;
+  readonly stuffId: number;
 }
 
 export class QueryDiscussionAccountReqDto extends QueryDiscussionAllReqDto {
   @IsString()
-  account: string;
+  readonly account: string;
 }
 
 export class CreateDiscussionReqDto {
   @Type(() => Number)
   @IsInt()
-  stuffId: number;
+  readonly stuffId: number;
 
   @IsString()
-  content: string;
+  readonly content: string;
 
   @Type(() => Number)
   @IsInt()
   @IsEnum({ Normal: 0, Anonymous: 1 })
-  userType: number;
+  readonly userType: number;
 
   @IsString()
-  signature: string;
+  readonly signature: string;
 
   @IsString()
-  account: string;
+  readonly account: string;
 }
