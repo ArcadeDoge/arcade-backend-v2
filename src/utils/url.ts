@@ -9,7 +9,10 @@ import * as url from 'url';
  * @param {string} key 获取单独的一个key
  * @return {*}
  */
-export const getUrlQuery = (urlPath: string, key?: string): string | object | undefined => {
+export const getUrlQuery = (
+  urlPath: string,
+  key?: string
+): string | object | undefined => {
   const query = url.parse(urlPath, true).query;
   if (key) {
     return query[key];

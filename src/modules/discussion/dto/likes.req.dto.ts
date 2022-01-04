@@ -1,8 +1,7 @@
-import { Type } from "class-transformer";
-import { IsEnum, IsInt, IsString } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsEnum, IsInt, IsString } from 'class-validator';
 
 class LikesReqDto {
-
   @Type(() => Number)
   @IsInt()
   discussionId: number;
@@ -15,8 +14,6 @@ class LikesReqDto {
   user: string;
 }
 
-export class GetLikesReqDto extends LikesReqDto {
-}
+export class GetLikesReqDto extends LikesReqDto {}
 
-export class SetLikesReqDto extends LikesReqDto {
-}
+export class SetLikesReqDto extends LikesReqDto {}

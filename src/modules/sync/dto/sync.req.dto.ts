@@ -1,8 +1,7 @@
-import { Type } from "class-transformer";
-import { IsInt, IsOptional, IsString } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsInt } from 'class-validator';
 
 export class TxsReqDto {
-
   @Type(() => Number)
   @IsInt()
   gameId: number;

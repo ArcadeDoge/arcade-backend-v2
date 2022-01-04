@@ -1,7 +1,6 @@
-import { QueryResDto } from "src/dto/query.res.dto";
+import { QueryResDto } from 'src/dto/query.res.dto';
 
 export class CommentResDto extends QueryResDto {
-
   readonly discussionId: number;
 
   readonly parentId: number;

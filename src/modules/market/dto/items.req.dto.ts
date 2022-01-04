@@ -1,9 +1,8 @@
-import { Type } from "class-transformer";
-import { IsInt } from "class-validator";
-import { QueryOptionsDto } from "src/dto/query.options.dto";
+import { Type } from 'class-transformer';
+import { IsInt } from 'class-validator';
+import { QueryOptionsDto } from 'src/dto/query.options.dto';
 
-export class MarketItemReqDto extends QueryOptionsDto{
-
+export class MarketItemReqDto extends QueryOptionsDto {
   @Type(() => Number)
   @IsInt()
   gameId: number;
@@ -17,6 +16,4 @@ export class MarketItemReqDto extends QueryOptionsDto{
   sortType: number;
 }
 
-export class UploadMaterialDto {
-
-}
+export class UploadMaterialDto {}

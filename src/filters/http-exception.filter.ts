@@ -1,4 +1,11 @@
-import { ArgumentsHost, Catch, ExceptionFilter, HttpException, HttpStatus, Logger, } from '@nestjs/common';
+import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  HttpException,
+  HttpStatus,
+  Logger,
+} from '@nestjs/common';
 import { formatDate } from 'src/utils';
 
 @Catch()
@@ -19,7 +26,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       resultMessage = message;
       resultCode = code;
       resultParams = oth;
-    } catch (e) { }
+    } catch (e) {}
     // const message = exception.message;
     Logger.log(exception, '错误提示');
     const errorResponse = {

@@ -1,3 +1,3 @@
 export type ObjectType = {
-  [propsName: string]: any
-}
+  [propsName: string]: any;
+};

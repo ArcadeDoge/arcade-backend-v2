@@ -1,13 +1,12 @@
-import { Type } from "class-transformer";
-import { IsEnum, IsInt, IsOptional, IsString } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsEnum, IsInt, IsOptional, IsString } from 'class-validator';
 
 export class VerifySwapReqDto {
-
   @Type(() => Number)
   @IsInt()
   @IsEnum({ Buy: 0, Sell: 1 })
   swapType: number;
-  
+
   @IsString()
   requester: string;
 

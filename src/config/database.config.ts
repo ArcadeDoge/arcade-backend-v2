@@ -8,15 +8,15 @@ export const configuration = () => {
   const password = getEnv('DB_PASSWORD');
   const database = getEnv('DB_DATABASE');
   const logging = getEnvBoolean('DB_LOGGING');
-  
+
   return {
     host,
     port,
     username,
     password,
     database,
-    logging
-  }
+    logging,
+  };
 };
 
 export const validationSchema = {
@@ -25,5 +25,5 @@ export const validationSchema = {
   DB_USERNAME: Joi.string().required(),
   DB_PASSWORD: Joi.string().required(),
   DB_DATABASE: Joi.string().required(),
-  DB_LOGGING: Joi.boolean().default(true)
+  DB_LOGGING: Joi.boolean().default(true),
 };

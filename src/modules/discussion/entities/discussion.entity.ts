@@ -1,42 +1,41 @@
-import { PublicEntity } from "src/modules/shared/entities/public.entity";
-import { Column, Entity, ManyToOne, OneToMany } from "typeorm";
-import { CommentEntity } from "./comment.entity";
-import { StuffEntity } from "./stuff.entity";
+import { PublicEntity } from 'src/modules/shared/entities/public.entity';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { CommentEntity } from './comment.entity';
+import { StuffEntity } from './stuff.entity';
 
 @Entity('tbl_discussion')
 export class DiscussionEntity extends PublicEntity {
-
   // @ManyToOne(type => StuffEntity, stuff => stuff.discussions)
   // stuff: StuffEntity;
 
   @Column({
     type: 'int',
-    name: 'stuff_id'
+    name: 'stuff_id',
   })
   stuffId: number;
 
   @Column({
     type: 'text',
-    name: 'content'
+    name: 'content',
   })
   content: string;
 
   @Column({
     type: 'varchar',
     length: 255,
-    name: 'user'
+    name: 'user',
   })
   user: string;
 
   @Column({
     type: 'int',
-    name: 'user_type'
+    name: 'user_type',
   })
   userType: number;
 
   @Column({
     type: 'int',
-    name: 'likes'
+    name: 'likes',
   })
   likes: number;
 

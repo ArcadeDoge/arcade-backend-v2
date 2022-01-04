@@ -1,6 +1,6 @@
-import { ethers } from "ethers";
-import { Signature } from "@ethersproject/bytes";
-import { configuration } from "src/config/default.config";
+import { ethers } from 'ethers';
+import { Signature } from '@ethersproject/bytes';
+import { configuration } from 'src/config/default.config';
 
 export type RequestType = {
   maker: string;
@@ -20,7 +20,7 @@ export type RequestWithSignature = RequestType & {
 
 const EIP712DOMAIN_TYPEHASH = ethers.utils.keccak256(
   ethers.utils.toUtf8Bytes(
-    "EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)"
+    'EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)'
   )
 );
 
@@ -32,7 +32,7 @@ const getDomainSeparator = (
 ) => {
   return ethers.utils.keccak256(
     ethers.utils.defaultAbiCoder.encode(
-      ["bytes32", "bytes32", "bytes32", "uint256", "address"],
+      ['bytes32', 'bytes32', 'bytes32', 'uint256', 'address'],
       [
         EIP712DOMAIN_TYPEHASH,
         ethers.utils.keccak256(ethers.utils.toUtf8Bytes(name)),
@@ -47,7 +47,7 @@ const getDomainSeparator = (
 class Request {
   // keccak256("Request(address maker,address requester,uint256 gameId,uint256 amount,uint256 reserved1,uint256 reserved2)")
   static REQUEST_TYPEHASH =
-    "0xd32aee5345fa208c941f81688a0bd6baed57015ace9fce44cfd25c5fb8a5fbf7";
+    '0xd32aee5345fa208c941f81688a0bd6baed57015ace9fce44cfd25c5fb8a5fbf7';
 
   public request: RequestType;
 
@@ -73,14 +73,14 @@ class Request {
     return ethers.utils.keccak256(
       ethers.utils.defaultAbiCoder.encode(
         [
-          "bytes32",
-          "address",
-          "address",
-          "address",
-          "uint256",
-          "uint256",
-          "uint256",
-          "uint256",
+          'bytes32',
+          'address',
+          'address',
+          'address',
+          'uint256',
+          'uint256',
+          'uint256',
+          'uint256',
         ],
         [
           Request.REQUEST_TYPEHASH,
@@ -103,15 +103,15 @@ class Request {
   ): Promise<Signature> {
     const chainId = configuration().chainId;
     const DOMAIN_SEPARATOR = getDomainSeparator(
-      "ArcadeSwap",
-      "1",
+      'ArcadeSwap',
+      '1',
       chainId,
       verifyingContract
     );
     const digest = ethers.utils.keccak256(
       ethers.utils.solidityPack(
-        ["bytes1", "bytes1", "bytes32", "bytes32"],
-        ["0x19", "0x01", DOMAIN_SEPARATOR, this.hash()]
+        ['bytes1', 'bytes1', 'bytes32', 'bytes32'],
+        ['0x19', '0x01', DOMAIN_SEPARATOR, this.hash()]
       )
     );
     const key = new ethers.utils.SigningKey(ethers.utils.hexlify(privateKey));

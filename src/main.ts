@@ -3,9 +3,7 @@ import { Logger } from '@nestjs/common';
 import helmet from 'helmet';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './filters/http-exception.filter';
-import {
-  TransformInterceptor
-} from './interceptors/transform/transform.interceptor';
+import { TransformInterceptor } from './interceptors/transform/transform.interceptor';
 
 const PORT = process.env.PORT || 3000;
 const PREFIX = process.env.PREFIX || '/';

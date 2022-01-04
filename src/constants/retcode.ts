@@ -4,7 +4,7 @@ const RetCode = {
   NotRegisteredWalletAddress: 100,
   InsufficientBalance: 101,
   InvalidParameters: 102,
-  NotInitialized: 103
-}
+  NotInitialized: 103,
+};
 
 export default RetCode;

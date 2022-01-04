@@ -4,11 +4,10 @@ import { DiscussionEntity } from './discussion.entity';
 
 @Entity('tbl_stuff')
 export class StuffEntity extends PublicEntity {
-
   @Column({
     type: 'varchar',
     length: 1024,
-    name: 'title'
+    name: 'title',
   })
   title: string;
 

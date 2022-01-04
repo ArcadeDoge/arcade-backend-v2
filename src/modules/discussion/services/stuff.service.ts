@@ -1,11 +1,11 @@
-import { Injectable } from "@nestjs/common";
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { DiscussionResDto } from "../dto/discussion.res.dto";
-import { StuffListResDto, StuffResDto } from "../dto/stuff.res.dto";
-import { StuffEntity } from "../entities/stuff.entity";
-import { DiscussionService } from "./discussion.service";
-import { LikesService } from "./likes.service";
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { DiscussionResDto } from '../dto/discussion.res.dto';
+import { StuffListResDto, StuffResDto } from '../dto/stuff.res.dto';
+import { StuffEntity } from '../entities/stuff.entity';
+import { DiscussionService } from './discussion.service';
+import { LikesService } from './likes.service';
 
 @Injectable()
 export class StuffService {
@@ -15,9 +15,10 @@ export class StuffService {
   ) {}
 
   async stuffById(id: number): Promise<StuffResDto | undefined> {
-    const stuffEntity: StuffEntity | undefined = await this.stuffRepository.findOne({
-      where: { id }
-    });
+    const stuffEntity: StuffEntity | undefined =
+      await this.stuffRepository.findOne({
+        where: { id },
+      });
     return stuffEntity ?? undefined;
   }
 
@@ -30,7 +31,7 @@ export class StuffService {
       data,
       total: data.length,
       pageNumber: 0,
-      pageSize: data.length
-    }
+      pageSize: data.length,
+    };
   }
 }

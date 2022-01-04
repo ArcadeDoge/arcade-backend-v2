@@ -4,10 +4,9 @@ import { PublicEntity } from 'src/modules/shared/entities/public.entity';
 
 @Entity('tbl_comment')
 export class CommentEntity extends PublicEntity {
-
   @Column({
     type: 'int',
-    name: 'discussion_id'
+    name: 'discussion_id',
   })
   discussionId: number;
 
@@ -16,32 +15,32 @@ export class CommentEntity extends PublicEntity {
 
   @Column({
     type: 'int',
-    name: 'parent_id'
+    name: 'parent_id',
   })
   parentId: number;
 
   @Column({
     type: 'text',
-    name: 'content'
+    name: 'content',
   })
   content: string;
 
   @Column({
     type: 'varchar',
     length: 255,
-    name: 'user'
+    name: 'user',
   })
   user: string;
 
   @Column({
     type: 'int',
-    name: 'user_type'
+    name: 'user_type',
   })
   userType: number;
 
   @Column({
     type: 'int',
-    name: 'likes'
+    name: 'likes',
   })
   likes: number;
 }

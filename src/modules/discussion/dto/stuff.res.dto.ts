@@ -1,9 +1,8 @@
-import { QueryListResDto } from "src/dto/query.list.res.dto";
-import { QueryResDto } from "src/dto/query.res.dto";
-import { DiscussionResDto } from "./discussion.res.dto";
+import { QueryListResDto } from 'src/dto/query.list.res.dto';
+import { QueryResDto } from 'src/dto/query.res.dto';
+import { DiscussionResDto } from './discussion.res.dto';
 
 export class StuffResDto extends QueryResDto {
-
   readonly title?: string;
 
   discussions?: DiscussionResDto[];

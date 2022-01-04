@@ -1,8 +1,7 @@
-import { Type } from "class-transformer";
-import { IsEnum, IsInt, IsString } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsEnum, IsInt, IsString } from 'class-validator';
 
 export class CreateCommentReqDto {
-
   @Type(() => Number)
   @IsInt()
   discussionId: number;

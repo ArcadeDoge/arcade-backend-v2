@@ -1,5 +1,5 @@
-import { QueryListResDto } from "src/dto/query.list.res.dto";
-import { QueryResDto } from "src/dto/query.res.dto";
+import { QueryListResDto } from 'src/dto/query.list.res.dto';
+import { QueryResDto } from 'src/dto/query.res.dto';
 
 export class TxsResDto extends QueryResDto {
   // todo

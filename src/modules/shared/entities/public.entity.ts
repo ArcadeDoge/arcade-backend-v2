@@ -1,7 +1,11 @@
-import { BaseEntity, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import {
+  BaseEntity,
+  CreateDateColumn,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 export class PublicEntity extends BaseEntity {
-
   @PrimaryGeneratedColumn({
     type: 'int',
     name: 'id',
@@ -18,7 +22,7 @@ export class PublicEntity extends BaseEntity {
   @UpdateDateColumn({
     type: 'timestamp',
     nullable: false,
-    name: 'updated_at'
+    name: 'updated_at',
   })
   updatedAt: Date;
 }
