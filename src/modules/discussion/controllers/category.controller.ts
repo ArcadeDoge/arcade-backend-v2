@@ -1,6 +1,5 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { CategoryListResDto } from '../dto/category.res.dto';
-import { GetLikesReqDto, SetLikesReqDto } from '../dto/likes.req.dto';
 
 @Controller('/categories')
 export class CategoriesController {

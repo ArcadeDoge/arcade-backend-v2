@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { GetLikesReqDto, SetLikesReqDto } from '../dto/likes.req.dto';
 
 @Controller('/likes')

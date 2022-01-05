@@ -1,5 +1,5 @@
 import { Type } from 'class-transformer';
-import { IsEnum, IsInt, IsString } from 'class-validator';
+import { IsInt, IsString } from 'class-validator';
 
 class LikesReqDto {
   @Type(() => Number)

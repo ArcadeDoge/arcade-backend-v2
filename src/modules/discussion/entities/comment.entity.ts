@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
+import { Column, Entity } from 'typeorm';
 import { PublicEntity } from 'src/modules/shared/entities/public.entity';
 // import { DiscussionEntity } from './discussion.entity';
 

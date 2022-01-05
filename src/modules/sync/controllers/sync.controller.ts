@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Inject,
-  Logger,
-  LoggerService,
-  Post,
-} from '@nestjs/common';
+import { Body, Controller, Logger, Post } from '@nestjs/common';
 import { ethers } from 'ethers';
 import { configuration } from 'src/config/default.config';
 import { ContractType, TxType } from 'src/constants/types';

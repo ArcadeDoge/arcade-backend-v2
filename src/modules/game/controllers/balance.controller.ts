@@ -11,7 +11,7 @@ import RetCode from 'src/constants/retcode';
 import { VerifySwapReqDto } from '../dto/balance.req.dto';
 import { VerifySwapResDto } from '../dto/balance.res.dto';
 import Request from '../helpers/request.helper';
-import { ethers, Signature } from 'ethers';
+import { Signature } from 'ethers';
 
 @Controller('/balance')
 export class BalanceController {

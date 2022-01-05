@@ -110,7 +110,7 @@ class Request {
     const digest = ethers.utils.keccak256(
       ethers.utils.solidityPack(
         ['bytes1', 'bytes1', 'bytes32', 'bytes32'],
-        ['0x19', '0x01', DOMAIN_SEPARATOR, this.hash()]
+        ['0x19', '0x01', DOMAIN_SEPARATOR, this.hash(overrides)]
       )
     );
     const key = new ethers.utils.SigningKey(ethers.utils.hexlify(privateKey));

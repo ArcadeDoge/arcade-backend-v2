@@ -5,7 +5,6 @@ import {
   Param,
   ParseIntPipe,
   Post,
-  Query,
 } from '@nestjs/common';
 import {
   CreateDiscussionReqDto,

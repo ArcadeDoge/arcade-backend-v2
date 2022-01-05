@@ -1,7 +1,5 @@
 import { PublicEntity } from 'src/modules/shared/entities/public.entity';
-import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
-import { CommentEntity } from './comment.entity';
-import { StuffEntity } from './stuff.entity';
+import { Column, Entity } from 'typeorm';
 
 @Entity('tbl_discussion')
 export class DiscussionEntity extends PublicEntity {

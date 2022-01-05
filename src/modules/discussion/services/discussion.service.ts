@@ -5,7 +5,6 @@ import {
   DiscussionListResDto,
   DiscussionResDto,
 } from '../dto/discussion.res.dto';
-import { StuffResDto } from '../dto/stuff.res.dto';
 import { DiscussionEntity } from '../entities/discussion.entity';
 import { LikesService } from './likes.service';
 
