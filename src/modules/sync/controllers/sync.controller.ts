@@ -40,7 +40,9 @@ export class SyncController {
       );
 
       const fromBlock =
-        fromBlockInDB === undefined ? currentBlock : fromBlockInDB + 1;
+        fromBlockInDB === undefined || fromBlockInDB === 0
+          ? currentBlock
+          : fromBlockInDB + 1;
       const toBlock = Math.min(fromBlock + 4000, currentBlock);
 
       const fills = await provider.getLogs({
