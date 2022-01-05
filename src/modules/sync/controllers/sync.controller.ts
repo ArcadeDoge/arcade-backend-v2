@@ -1,4 +1,11 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Inject,
+  Logger,
+  LoggerService,
+  Post,
+} from '@nestjs/common';
 import { ethers } from 'ethers';
 import { configuration } from 'src/config/default.config';
 import { ContractType, TxType } from 'src/constants/types';
@@ -64,7 +71,7 @@ export class SyncController {
           ethers.utils.hexDataSlice(fill.data, 32, 64)
         );
 
-        return {
+        const trade = {
           txId: fill.transactionHash,
           gameId,
           fromAddr: user,
@@ -74,6 +81,10 @@ export class SyncController {
           type: type === 1 ? TxType.BuyGameCurrency : TxType.SellGameCurrency,
           blockNumber: fill.blockNumber,
         };
+
+        Logger.log(`sync transaction: ${JSON.stringify(trade)}`);
+
+        return trade;
       });
 
       if (trades.length > 0) {
@@ -81,7 +92,7 @@ export class SyncController {
           trades
         );
 
-        console.log(
+        Logger.log(
           `Updated ${records} of ${trades.length} transactions are stored successfully`
         );
       }
@@ -91,7 +102,7 @@ export class SyncController {
         toBlock
       );
     } catch (err) {
-      console.log('err', err);
+      Logger.error(err);
     }
   }
 

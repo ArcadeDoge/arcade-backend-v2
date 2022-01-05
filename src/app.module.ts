@@ -1,4 +1,4 @@
-import { Module, ValidationPipe } from '@nestjs/common';
+import { Logger, Module, ValidationPipe } from '@nestjs/common';
 import { ConfigModule, ConfigService, registerAs } from '@nestjs/config';
 import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -55,6 +55,7 @@ console.log('NODE_ENV', process.env.NODE_ENV);
   ],
   controllers: [],
   providers: [
+    Logger,
     {
       provide: APP_INTERCEPTOR,
       useClass: LoggingInterceptor,
