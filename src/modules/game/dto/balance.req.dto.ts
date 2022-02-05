@@ -31,3 +31,29 @@ export class VerifySwapReqDto {
   @IsOptional()
   reserved2: number;
 }
+
+export class VerifyUpdateReqDto {
+  @IsString()
+  requester: string;
+
+  @IsString()
+  gcToken: string;
+
+  @Type(() => Number)
+  @IsInt()
+  @IsEnum({ MarsDoge: 1 })
+  gameId: number;
+
+  @IsString()
+  amount: string;
+
+  @Type(() => Number)
+  @IsInt()
+  @IsOptional()
+  reserved1: number;
+
+  @Type(() => Number)
+  @IsInt()
+  @IsOptional()
+  reserved2: number;
+}
