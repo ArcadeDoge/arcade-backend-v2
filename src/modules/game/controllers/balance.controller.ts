@@ -54,38 +54,6 @@ export class BalanceController {
             HttpStatus.OK
           );
         }
-      } else {
-        // Buy
-        const balance = await axios.post(
-          `${configuration().marsdoge}/balance`,
-          {
-            address: reqDto.requester,
-          }
-        );
-        if (!balance || balance.data.result !== RetCode.Success) {
-          throw new HttpException(
-            {
-              message: {
-                code: RetCode.Failed,
-                message: 'Marsdoge verification failed',
-              },
-            },
-            HttpStatus.OK
-          );
-        }
-        const totalAmount =
-          Number(balance.data.data.balance) + Number(reqDto.amount);
-        if (totalAmount >= 2147483647 - 1) {
-          throw new HttpException(
-            {
-              message: {
-                code: RetCode.ExceedInt32,
-                message: 'Expected balance exceeds Int32 limit value',
-              },
-            },
-            HttpStatus.OK
-          );
-        }
       }
 
       console.log(
