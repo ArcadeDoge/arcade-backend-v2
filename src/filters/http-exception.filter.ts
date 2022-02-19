@@ -17,11 +17,12 @@ export class HttpExceptionFilter implements ExceptionFilter {
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
-    let resultMessage = exception.message;
+    let resultMessage = (exception.getResponse() as any).message;
     let resultCode = 1;
     let resultParams = {};
     try {
-      const { code, message, ...oth } = JSON.parse(exception.message);
+      const { code, message, ...oth } = (exception.getResponse() as any)
+        .message;
       resultMessage = message;
       resultCode = code;
       resultParams = oth;

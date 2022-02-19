@@ -32,6 +32,7 @@ export class BalanceController {
         );
       }
       if (reqDto.swapType === 1) {
+        // Sell
         const gameBackendVerification = await axios.post(
           `${configuration().marsdoge}/verify/swap-game-point`,
           {
@@ -41,13 +42,45 @@ export class BalanceController {
         );
         if (
           !gameBackendVerification ||
-          gameBackendVerification.data.result != RetCode.Success
+          gameBackendVerification.data.result !== RetCode.Success
         ) {
           throw new HttpException(
             {
               message: {
                 code: RetCode.Failed,
+                message: 'Marsdoge backend verification has been failed',
+              },
+            },
+            HttpStatus.OK
+          );
+        }
+      } else {
+        // Buy
+        const balance = await axios.post(
+          `${configuration().marsdoge}/balance`,
+          {
+            address: reqDto.requester,
+          }
+        );
+        if (!balance || balance.data.result !== RetCode.Success) {
+          throw new HttpException(
+            {
+              message: {
+                code: RetCode.Failed,
                 message: 'Marsdoge verification failed',
+              },
+            },
+            HttpStatus.OK
+          );
+        }
+        const totalAmount =
+          Number(balance.data.data.balance) + Number(reqDto.amount);
+        if (totalAmount >= 2147483647 - 1) {
+          throw new HttpException(
+            {
+              message: {
+                code: RetCode.ExceedInt32,
+                message: 'Expected balance exceeds Int32 limit value',
               },
             },
             HttpStatus.OK
@@ -82,7 +115,7 @@ export class BalanceController {
         s: signature.s,
       };
     } catch (err) {
-      console.log('err', err);
+      if (err.message === 'Http Exception') throw err;
       throw new HttpException(
         {
           message: {
@@ -139,7 +172,7 @@ export class BalanceController {
         s: signature.s,
       };
     } catch (err) {
-      console.log('err', err);
+      if (err.message === 'Http Exception') throw err;
       throw new HttpException(
         {
           message: {

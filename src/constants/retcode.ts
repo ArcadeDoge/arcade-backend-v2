@@ -5,6 +5,7 @@ const RetCode = {
   InsufficientBalance: 101,
   InvalidParameters: 102,
   NotInitialized: 103,
+  ExceedInt32: 104,
 };
 
 export default RetCode;

@@ -29,6 +29,7 @@ async function bootstrap() {
           dirname: path.join(__dirname, './../log/info/'),
           filename: 'info.log',
           level: 'info',
+          maxsize: 10485760,
         }),
       ],
     }),
