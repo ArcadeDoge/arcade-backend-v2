@@ -31,29 +31,26 @@ export class BalanceController {
           HttpStatus.OK
         );
       }
-      if (reqDto.swapType === 1) {
-        // Sell
-        const gameBackendVerification = await axios.post(
-          `${configuration().marsdoge}/verify/swap-game-point`,
-          {
-            address: reqDto.requester,
-            amount: reqDto.amount,
-          }
-        );
-        if (
-          !gameBackendVerification ||
-          gameBackendVerification.data.result !== RetCode.Success
-        ) {
-          throw new HttpException(
-            {
-              message: {
-                code: RetCode.Failed,
-                message: 'Marsdoge backend verification has been failed',
-              },
-            },
-            HttpStatus.OK
-          );
+      const gameBackendVerification = await axios.post(
+        `${configuration().marsdoge}/verify/swap-game-point`,
+        {
+          address: reqDto.requester,
+          amount: reqDto.amount,
         }
+      );
+      if (
+        !gameBackendVerification ||
+        gameBackendVerification.data.result !== RetCode.Success
+      ) {
+        throw new HttpException(
+          {
+            message: {
+              code: RetCode.Failed,
+              message: 'Marsdoge backend verification has been failed',
+            },
+          },
+          HttpStatus.OK
+        );
       }
 
       console.log(
