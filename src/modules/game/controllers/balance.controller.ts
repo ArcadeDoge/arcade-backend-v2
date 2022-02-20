@@ -36,6 +36,7 @@ export class BalanceController {
         {
           address: reqDto.requester,
           amount: reqDto.amount,
+          type: reqDto.swapType,
         }
       );
       if (
